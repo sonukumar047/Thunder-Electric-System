@@ -8,6 +8,7 @@ public class Consumer {
     private String address;
     private String mobileNumber;
     private String email;
+    private boolean isActive;
 
     public Consumer(String username, String password, String firstName, String lastName,
                     String address, String mobileNumber, String email) {
@@ -18,8 +19,12 @@ public class Consumer {
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.email = email;
+        this.isActive = true;
     }
 
+    public String getFullName(){
+    	return firstName+" "+lastName;
+    }
     public String getUsername() {
         return username;
     }
@@ -28,8 +33,12 @@ public class Consumer {
         return password;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getAddress() {
@@ -42,5 +51,24 @@ public class Consumer {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return "Username: " + username +
+                "\nPassword: " + password +
+                "\nName: " + firstName + " " + lastName +
+                "\nAddress: " + address +
+                "\nMobile Number: " + mobileNumber +
+                "\nEmail: " + email +
+                "\nStatus: " + (isActive ? "Active" : "Inactive");
     }
 }

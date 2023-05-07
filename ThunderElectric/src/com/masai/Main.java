@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		System.out.println("Wewlcome to Thunder Electric Rajsthan");
+		System.out.println();
 		Scanner scanner = new Scanner(System.in);
 		ElectricityBillSystem system = new ElectricityBillSystem();
 

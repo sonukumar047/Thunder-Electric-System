@@ -1,6 +1,8 @@
 package com.masai;
 
-public class Consumer {
+import java.io.Serializable;
+
+public class Consumer implements Serializable {
     private String username;
     private String password;
     private String firstName;

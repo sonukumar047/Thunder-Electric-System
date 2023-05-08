@@ -22,6 +22,17 @@ public class Bill {
 		this.totalAmount = totalAmount;
 		this.status = status;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "billId=" + billId +"\n"+ " consumerUsername=" + consumerUsername +"\n"+ " fixedCharge=" + fixedCharge
+				+"\n"+ " unitsConsumed=" + unitsConsumed +"\n"+ " taxes=" + taxes +"\n"+ " adjustment=" + adjustment
+				+"\n"+ " totalAmount=" + totalAmount +"\n"+ " status=" + status;
+	}
+
+
 
 	public int getBillId() {
 		return billId;

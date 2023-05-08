@@ -34,11 +34,10 @@ class ElectricityBillSystem {
 		}
 
 		for (Consumer consumer : consumers) {
-			if(consumer.isActive()==true) {
-				
-				System.out.println(consumer.getUsername() + "\t" + consumer.getFullName()
-				+ "\t" + consumer.getAddress()
-				+ "\t" + consumer.getMobileNumber() + "\t" + consumer.getEmail());
+			if (consumer.isActive() == true) {
+
+				System.out.println(consumer.getUsername() + "\t" + consumer.getFullName() + "\t" + consumer.getAddress()
+						+ "\t" + consumer.getMobileNumber() + "\t" + consumer.getEmail());
 			}
 		}
 	}
@@ -177,7 +176,6 @@ class ElectricityBillSystem {
 			}
 		}
 
-		System.out.println("Consumer deleted successfully.");
 	}
 
 	public Bill getLatestBill(String consumerUsername) {

@@ -34,7 +34,7 @@ public class Main {
 			System.out.println("5. View all bills paid and pending");
 			System.out.println("6. Delete consumer");
 			System.out.println("7. Exit");
-			System.out.print("Enter selection");
+			System.out.print("Enter your selection");
 
 			int choice = Integer.parseInt(scanner.nextLine());
 

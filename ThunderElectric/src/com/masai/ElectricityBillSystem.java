@@ -1,22 +1,29 @@
 package com.masai;
 
-import java.time.LocalDate;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 class ElectricityBillSystem {
 	private List<Consumer> consumers;
 	private List<Bill> bills;
+	
+	Bill b1 = new Bill(1, "sonukumar", 80, 200, 5, 2, 5000, "Un-Paid");
+	
+	
 
 	public ElectricityBillSystem() {
 		consumers = new ArrayList<>();
 		bills = new ArrayList<>();
+		bills.add(b1);
 	}
 
 	public void registerConsumer(String username, String password, String firstName, String lastName, String address,
-			String mobileNumber, String email) {
+			String mobileNumber, String email) throws IOException {
 		for (Consumer consumer : consumers) {
 			if (consumer.getUsername().equals(username)) {
 				throw new IllegalArgumentException("Username already exists. Please choose a different username.");
@@ -24,6 +31,13 @@ class ElectricityBillSystem {
 		}
 		Consumer newConsumer = new Consumer(username, password, firstName, lastName, address, mobileNumber, email);
 		consumers.add(newConsumer);
+		File f = new File("consumer.ser");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		FileOutputStream fos = new FileOutputStream("consumer.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(newConsumer);
 		System.out.println("Consumer registered successfully.");
 	}
 
@@ -36,8 +50,9 @@ class ElectricityBillSystem {
 		for (Consumer consumer : consumers) {
 			if (consumer.isActive() == true) {
 
-				System.out.println(consumer.getUsername() + "\t" + consumer.getFullName() + "\t" + consumer.getAddress()
-						+ "\t" + consumer.getMobileNumber() + "\t" + consumer.getEmail());
+				//System.out.println(consumer.getUsername() + "\t" + consumer.getFullName() + "\t" + consumer.getAddress()
+					//	+ "\t" + consumer.getMobileNumber() + "\t" + consumer.getEmail());
+				System.out.println(consumer.toString());
 			}
 		}
 	}
@@ -188,6 +203,7 @@ class ElectricityBillSystem {
 			}
 		}
 		return latestBill;
+		
 	}
 
 	public boolean adminLogin(String username, String password) {

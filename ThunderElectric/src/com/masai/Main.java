@@ -1,5 +1,6 @@
 package com.masai;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -66,6 +67,9 @@ public class Main {
 					system.registerConsumer(userName, passWord, firstName, lastName, address, mobileNumber, email);
 				} catch (InvalidDataException e) {
 					System.out.println(e.getMessage());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 				break;
 			case 2:
@@ -79,7 +83,7 @@ public class Main {
 
 				try {
 					Bill bill = system.getLatestBill(consumerUsername);
-					System.out.println(bill);
+					System.out.println(bill.toString());
 				} catch (InvalidDataException e) {
 					System.out.println(e.getMessage());
 				}
